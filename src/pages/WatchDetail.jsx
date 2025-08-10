@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import  { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getWatchById } from "../server/api";
 import { useCart } from '../context/CartContext';
 
@@ -9,7 +9,6 @@ const WatchDetail = () => {
   const [error, setError] = useState(null);
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
-  const navigate = useNavigate();
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const WatchDetail = () => {
     fetchWatchDetails();
   }, [id]);
 
-  // Add to cart function
   const handleAddToCart = () => {
     const cartItem = {
       id: watch.id,

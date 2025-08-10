@@ -15,7 +15,6 @@ const WatchList = () => {
         if (!Array.isArray(data)) {
           throw new Error("Invalid data format received");
         }
-        // Remove the filter to show all watches instead of just smartwatches
         setWatches(data);
         setError(null);
       } catch (err) {

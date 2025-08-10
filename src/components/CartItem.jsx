@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {

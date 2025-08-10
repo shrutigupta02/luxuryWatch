@@ -6,7 +6,6 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
-  // Load cart from localStorage on initial render
   useEffect(() => {
     try {
       const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -19,7 +18,6 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // Update localStorage whenever cart changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
     setCartCount(cartItems.reduce((total, item) => total + item.quantity, 0));
@@ -55,7 +53,6 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  // Add clearCart function
   const clearCart = () => {
     setCartItems([]);
     setCartCount(0);
@@ -69,7 +66,7 @@ export const CartProvider = ({ children }) => {
       addToCart,
       removeFromCart,
       updateQuantity,
-      clearCart  // Add clearCart to the context value
+      clearCart  
     }}>
       {children}
     </CartContext.Provider>

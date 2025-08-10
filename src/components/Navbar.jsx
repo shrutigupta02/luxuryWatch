@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { useState } from "react"; // Assuming logo is in assets folder
-
+import { useState } from "react"; 
 function Navbar() {
   const { cart, cartCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

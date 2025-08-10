@@ -14,7 +14,6 @@ const PaymentStatus = () => {
 
                 if (paymentStatus === 'SUCCESS') {
                     setStatus('success');
-                    // Clear cart and order details from localStorage
                     localStorage.removeItem('cartItems');
                     localStorage.removeItem('orderId');
                 } else if (paymentStatus === 'FAILED') {

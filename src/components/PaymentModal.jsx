@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 
 const PaymentModal = ({ isOpen, onClose, orderDetails }) => {
-  const navigate = useNavigate();
   const { cartItems } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);

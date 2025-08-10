@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import  { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const location = useLocation();
 
     useEffect(() => {
         const initializePayment = async () => {

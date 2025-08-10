@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="home">
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
           <h1>Elevate Your Style with Luxury Timepieces</h1>
@@ -18,7 +17,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Featured Collections */}
       <section className="featured-section">
         <h2>Curated Collections</h2>
         <p className="section-subtitle">
@@ -78,7 +76,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section className="why-choose-us">
         <h2>Experience Luxury Like Never Before</h2>
         <p className="section-subtitle">

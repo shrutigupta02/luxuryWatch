@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import PaymentModal from './PaymentModal';
 
 const ShippingModal = ({ isOpen, onClose }) => {
-  const navigate = useNavigate();
   const { cartItems } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -33,40 +31,39 @@ const ShippingModal = ({ isOpen, onClose }) => {
     return subtotal + shippingTotal;
   };
 
-  const initiatePayment = async (orderId) => {
-    try {
-      const response = await fetch('http://localhost:3001/api/initiate-payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          orderId,
-          amount: calculateTotal(),
-          customerDetails: {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone
-          }
-        })
-      });
+  // const initiatePayment = async (orderId) => {
+  //   try {
+  //     const response = await fetch('http://localhost:3001/api/initiate-payment', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         orderId,
+  //         amount: calculateTotal(),
+  //         customerDetails: {
+  //           name: formData.name,
+  //           email: formData.email,
+  //           phone: formData.phone
+  //         }
+  //       })
+  //     });
 
-      const data = await response.json();
-      if (data.success) {
-        // Store payment details in localStorage
-        localStorage.setItem('paymentDetails', JSON.stringify({
-          orderId: data.orderId,
-          amount: data.amount
-        }));
-        return true;
-      } else {
-        throw new Error(data.error || 'Payment initiation failed');
-      }
-    } catch (error) {
-      console.error('Payment Error:', error);
-      return false;
-    }
-  };
+  //     const data = await response.json();
+  //     if (data.success) {
+  //       localStorage.setItem('paymentDetails', JSON.stringify({
+  //         orderId: data.orderId,
+  //         amount: data.amount
+  //       }));
+  //       return true;
+  //     } else {
+  //       throw new Error(data.error || 'Payment initiation failed');
+  //     }
+  //   } catch (error) {
+  //     console.error('Payment Error:', error);
+  //     return false;
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

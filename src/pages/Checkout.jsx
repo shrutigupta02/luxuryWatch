@@ -8,7 +8,6 @@ const Checkout = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Guard clause for empty cart
   if (!cartItems || cartItems.length === 0) {
     return (
       <div style={{ textAlign: 'center', padding: '50px' }}>
@@ -31,7 +30,6 @@ const Checkout = () => {
     );
   }
 
-  // Calculate totals only if cartItems exists
   const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   const shippingTotal = cartItems.length > 0 
     ? Math.max(...cartItems.map(item => item.shippingCharge))
@@ -69,7 +67,6 @@ const Checkout = () => {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px' }}>
-        {/* Order Summary */}
         <div>
           <h2 style={{ marginBottom: '20px' }}>Order Summary</h2>
           {cartItems.map((item) => (
@@ -101,7 +98,6 @@ const Checkout = () => {
           ))}
         </div>
 
-        {/* Price Summary */}
         <div style={{
           backgroundColor: '#f8f8f8',
           padding: '20px',
