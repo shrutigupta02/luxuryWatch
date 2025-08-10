@@ -115,7 +115,7 @@ const WatchList = () => {
                 }}
                 onError={(e) => {
                   e.target.src = "https://via.placeholder.com/200x200?text=Watch+Image+Not+Found";
-                  e.target.onerror = null; // Prevents infinite loop if placeholder fails
+                  e.target.onerror = null;
                 }}
               />
             </div>
