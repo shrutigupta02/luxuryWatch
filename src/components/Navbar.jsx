@@ -9,11 +9,14 @@ function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-slate-800 shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold tracking-wide text-gray-900">
+          <Link
+            to="/"
+            className="text-2xl font-bold tracking-wide text-gray-900"
+          >
             LuxWatch
           </Link>
 
@@ -39,7 +42,7 @@ function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               to="/checkout"
-              className="relative flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+              className="relative flex items-center justify-center w-12 h-12 rounded-full bg-rose-950 hover:bg-rose-900 transition"
             >
               {/* SVG Cart Icon */}
               <svg
@@ -59,7 +62,7 @@ function Navbar() {
 
               {/* Cart Count Badge */}
               {cartCount > 0 && (
-                <span className="absolute -top-3 -right-3 bg-blue-800 text-white text-sm font-semibold rounded-full px-3 py-1.5 shadow-lg transform transition-transform duration-300 scale-100 hover:scale-110">
+                <span className="absolute -top-3 -right-3 bg-rose-950 text-white text-sm font-semibold rounded-full px-3 py-1.5 shadow-lg transform transition-transform duration-300 scale-100 hover:scale-110">
                   {cartCount}
                 </span>
               )}
@@ -79,7 +82,11 @@ function Navbar() {
                 strokeWidth={2}
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
               <svg
@@ -89,7 +96,11 @@ function Navbar() {
                 strokeWidth={2}
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 8h16M4 16h16"
+                />
               </svg>
             )}
           </button>
@@ -100,18 +111,30 @@ function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-md">
           <div className="flex flex-col gap-4 px-6 py-4">
-            <Link to="/" className="text-gray-700 hover:text-blue-600" onClick={toggleMenu}>
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-blue-600"
+              onClick={toggleMenu}
+            >
               Home
             </Link>
-            <Link to="/watches" className="text-gray-700 hover:text-blue-600" onClick={toggleMenu}>
+            <Link
+              to="/watches"
+              className="text-gray-700 hover:text-blue-600"
+              onClick={toggleMenu}
+            >
               Watches
             </Link>
-            <Link to="/About" className="text-gray-700 hover:text-blue-600" onClick={toggleMenu}>
+            <Link
+              to="/About"
+              className="text-gray-700 hover:text-blue-600"
+              onClick={toggleMenu}
+            >
               About
             </Link>
             <Link
               to="/checkout"
-              className="relative flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 transition"
+              className="relative flex items-center justify-center w-12 h-12 rounded-full bg-slate-800 hover:bg-slate-800 transition"
               onClick={toggleMenu}
             >
               <svg
@@ -128,10 +151,7 @@ function Navbar() {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8H19m-6-8V6"
                 />
               </svg>
-              {cartCount > 0 && (
-                          <span className="cart-count">{cartCount}</span>
-
-              )}
+              {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
             </Link>
           </div>
         </div>
